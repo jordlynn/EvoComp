@@ -47,16 +47,14 @@ void individual::Evaluate(){
 	cout.precision(15);
 	ifstream fIn ("GPProjectData.csv");
 	getline(fIn, tempCharacter);
-	for(int i=0; i < 2; i++){
+	for(int i=0; i < DOM; i++){
 		while(indexer < 11){
 			getline(fIn, tempCharacter, ',');
 			tmp = stod(tempCharacter);
 			if(indexer < 10){
-				cout << indexer <<": " << tmp << endl;
 				arry[indexer] = tmp;
 			}
 			else if(indexer == 10){
-				cout << "equals " << tmp << endl; 
 				expected = tmp;
 			}
 			indexer++;
@@ -73,6 +71,10 @@ void individual::Evaluate(){
 
 double individual::GetFitness()const{
 	return fitness;
+}
+
+int individual::GetDepth(){
+	return depth;
 }
 
 void individual::CrossOver(individual *toMate){

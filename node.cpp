@@ -6,7 +6,7 @@
 #define divi 3
 #define coeff 4
 #define term 5
-#define subI 3
+#define subI 10
 
 #include "node.h"
 #include <random>

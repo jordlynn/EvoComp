@@ -16,6 +16,7 @@ public:
 	void CalcRMS();
 	void CrossOver(individual *toMate);
 	void Mutation();
+	int GetDepth();
 	void EarseTree(node* root);
 	node *rootNode;
 	void Update();

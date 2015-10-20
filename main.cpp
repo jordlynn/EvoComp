@@ -5,9 +5,9 @@
 #include <fstream>
 #include <algorithm>
 #include "individual.h"
-#define POP 25
-#define GENERATIONS 1
-#define TOURNYSIZE 8 // Make sure this is even!
+#define POP 50
+#define GENERATIONS 200
+#define TOURNYSIZE 12 // Make sure this is even!
 using namespace std;
 
 // Proto
@@ -17,21 +17,27 @@ void AntiSelect(individual population[POP], individual *tributes[TOURNYSIZE]);
 
 int main(){
 	ofstream fOut ("data.csv");
+	ofstream nOde ("node.csv");
 	srand(time(NULL));
 	individual population[POP];
 	double tmp;
 	int best;
+	double tmpDepth = 0;
 
 	for(int i= 0; i < POP; i++){
-		population[i].Generate(rand()%3+4);
+		population[i].Generate(rand()%3+5);
 	}
 
 	for(int j=0; j < GENERATIONS; j++){
 		for(int k=0; k < POP; k++){
 			population[k].Evaluate();
 			fOut << population[k].GetFitness() << ", ";
+			tmpDepth += population[k].GetDepth();
+			cout << population[k].GetDepth() << endl;
 		}
 		fOut << endl;
+		tmpDepth = tmpDepth / POP;
+		nOde << tmpDepth << endl;
 		Tournament(population);
 		if(j%100 == 0)cout << j << endl;
 	}
@@ -42,10 +48,12 @@ int main(){
 			best = k;
 		}
 	}
+
 	population[best].Print();
 
 
 	fOut.close();
+	nOde.close();
 	return 0;
 }
 
