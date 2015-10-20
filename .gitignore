@@ -1,4 +1,4 @@
 report.*
 a.out
-GPProjectData.csv
-data.csv
+*.csv
+*.png
