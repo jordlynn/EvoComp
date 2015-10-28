@@ -1,6 +1,7 @@
-\BOOKMARK [1][-]{section.1}{Initialization}{}% 1
-\BOOKMARK [1][-]{section.2}{Tournament}{}% 2
-\BOOKMARK [1][-]{section.3}{Crossover}{}% 3
-\BOOKMARK [1][-]{section.4}{Mutation}{}% 4
-\BOOKMARK [1][-]{section.5}{AntiSelect}{}% 5
-\BOOKMARK [1][-]{section.6}{Results \046 Conclusion}{}% 6
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Routines}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Evaluation}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Tournament}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Crossover}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Anti-Selection}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{Results \046 Conclusions}{}% 7

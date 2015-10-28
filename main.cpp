@@ -25,7 +25,7 @@ int main(){
 	double tmpDepth = 0;
 
 	for(int i= 0; i < POP; i++){
-		population[i].Generate(rand()%3+5);
+		population[i].Generate(rand()%3+4);
 	}
 
 	for(int j=0; j < GENERATIONS; j++){
@@ -33,7 +33,6 @@ int main(){
 			population[k].Evaluate();
 			fOut << population[k].GetFitness() << ", ";
 			tmpDepth += population[k].GetDepth();
-			cout << population[k].GetDepth() << endl;
 		}
 		fOut << endl;
 		tmpDepth = tmpDepth / POP;
