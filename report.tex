@@ -78,7 +78,7 @@ Once each individual has been given a fitness a second array of pointers that re
 An individual crosses its own tree with a passed in other individual, this is done by randomly calculating a depth to proceed to first then advancing a pointer down the tree taking a random left or right branch (as long as those movements are valid branches) and after reaching a position within the tree the same is done for the other individual. Then the nodes at this point are switched and pointers reassigned.
 
 \subsection{Anti-Selection}
-Anti-Selection, or how new individuals are placed back into the population. Is based off of the fitness of the new individuals. A similar array of pointers from before is used to rank the population from worst fitness to best. As the new individuals are compared to ones in the population if the fitness is lower than those in the population they are replaced.
+Anti-Selection, or how new individuals are placed back into the population. Is based off of the fitness of the new individuals. A similar array of pointers from before is used to rank the population from worst fitness to best. As the new individuals are compared to ones in the population if the fitness is lower than those in the population they are replaced. Making sure to only to replace an individual if it has a better fitness is important because it can significantly reduce computation times.
 
 \section{Results \& Conclusions}
 The GA seems to be performing very well. Initially there was concern over tree size, but that was easily resolved by letting the parsimony pressure contribute to the fitness. For the sake of seeing the type of function produced here is a result of running with a population of 50, 200 generations, and a tournament size of 12 (so there are 6 crossovers): $((4.6+((6.6+x_9)*(6.05-x_8))+(4.6((6.6+x_9)*(6.05-x_8))))$ while this function isn't an exact answer, getting the exact answer isn't really the point with a genetic algorithm. Getting an answer that works just like the original is considered apart of the goals. If you look at you can see the best individual improving over the generations. And eventually leveling out around generation 150.
@@ -90,13 +90,17 @@ The GA seems to be performing very well. Initially there was concern over tree s
 \end{figure}
 
 The $R^2$ has been calculated and added to the graph to show the relation exponential decreasing of the fitness. This particular run came up with a $R^2=0.77$, other runs would come up with solutions even closer which can hint towards an evolutionary algorithm having diminishing rates of returns. For future projects involving a similar algorithm this should be taken into account when thinking about the run-time of the software.\\
-The population as a whole also improved over time, this graph shown below shows all the individuals slowly improving.
+The population as a whole also improved over time, this graph shown below shows all the individuals slowly improving.\\
 
 \begin{figure}[H]
 \label{fig:pop}
 		\includegraphics[width=.5\textwidth]{AverageGraph.png}
 		\caption{graph of populations' fitness}
 \end{figure}
+
+When comparing my algorithm to other students' algorithms in class that haven't implemented an anti-selection that only replaces when the fitness is better, there was a significant difference in computation time needed. Only allowing better individuals back into the population keeps the overall trees at a good fitness. Allowing badly crossed over or badly mutated children into the population sets the GA back and now it needs to overcome the bad mutations/crossovers. This small decision will affect what population size is chosen, mutation rates, generation counts and so on. Mainly what I'm illustrating here is that small choices when making a GA (such as anti-selection method) can have large detrimental or beneficial results. Comparing and discussing a GA with peers' GAs is important to compare/contrast benefits and costs.
+
+
 
 \end{multicols}
 \end{document}
